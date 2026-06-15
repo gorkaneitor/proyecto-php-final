@@ -51,11 +51,11 @@ $deskontuak = DiskoaDB::selectDeskontuak();
         <div class="col-3 col-s-12">
             <aside>
                 <h2>Nortzuk dira?</h2>
-                <p>Tyler Joseph abeslariak eta Josh Dun bateristak osatzen duten duo estatubatuarra da.</p>
+                <p>Tyler Joseph abeslaria eta Josh Dun bateristak osatzen duten duo estatubatuarra da.</p>
                 <h2>Musika mota</h2>
                 <p>Twenty One Pilots hip-hop eta rock talde bat da.</p>
                 <h2>Diskoak</h2>
-                <p>Beraien album, EP eta single ezberdinak eros ditzakezue.</p>
+                <p>Beraien album, EP eta single ezberdinak eros ditzakezue denda honetan.</p>
             </aside>
         </div>
 

@@ -5,12 +5,14 @@ namespace com\leartik\daw24gone\diskoak;
 use PDO;
 use Exception;
 
+require_once __DIR__ . '/../../../../../Database.php';
+
 class KategoriaDB
 {
     public static function selectKategoriak()
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\denda\\diskoak.db");
+            $db = Database::getConnection();
             $erregistroak = $db->query("SELECT * FROM kategoriak");
             $kategoriak = array();
             while ($erregistroa = $erregistroak->fetch()) {
@@ -31,7 +33,7 @@ class KategoriaDB
     public static function selectKategoria($id)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\denda\\diskoak.db");
+            $db = Database::getConnection();
             $erregistroak = $db->query("SELECT * FROM kategoriak WHERE id =" . $id);
             $kategoria = null;
             while ($erregistroa = $erregistroak->fetch()) {
@@ -51,7 +53,7 @@ class KategoriaDB
     public static function insertKategoria($kategoria)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\denda\\diskoak.db");
+            $db = Database::getConnection();
             $sql = "insert into kategoriak(izena,deskribapena) values";
             $sql = $sql . "('" . $kategoria->getIzena() . "'";
             $sql = $sql . ",'" . $kategoria->getDeskribapena() . "')";
@@ -67,7 +69,7 @@ class KategoriaDB
     public static function aldatuKategoria($kategoria)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\denda\\diskoak.db");
+            $db = Database::getConnection();
             $sql = "UPDATE kategoriak 
             SET izena = '" . $kategoria->getIzena() . "', 
                 deskribapena = '" . $kategoria->getDeskribapena() . "'
@@ -84,7 +86,7 @@ class KategoriaDB
     public static function ezabatuKategoria($kategoria)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\denda\\diskoak.db");
+            $db = Database::getConnection();
             $sql = "DELETE FROM kategoriak WHERE id = '" . $kategoria->getId() . "'";
             $emaitza = $db->exec($sql);
             return $emaitza;
