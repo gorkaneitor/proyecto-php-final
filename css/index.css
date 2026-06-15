@@ -1,0 +1,132 @@
+main img{
+    width: 100%;
+    max-width: 100%;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0;
+}
+
+[class*="col-"] {
+    padding: 15px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: deeppink;
+    color: aqua;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 1), 0 1px 2px rgba(0, 0, 0, 0.24);
+    text-shadow: 
+        0 0 8px rgba(0, 0, 0, 1),
+        0 0 4px rgba(0, 0, 0, 1),
+        0 0 2px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+.menu li:hover {
+    background-color: hotpink;
+}
+
+.col-6{
+    color: whitesmoke;
+    text-align: center;
+}
+
+aside {
+    background-color: deeppink;
+    padding: 15px;
+    color: aqua;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    text-shadow: 
+        0 0 8px rgba(0, 0, 0, 1),
+        0 0 4px rgba(0, 0, 0, 1),
+        0 0 2px rgba(0, 0, 0, 1);
+}
+
+/* Mobilentzako: */
+[class*="col-"] {
+    grid-column: span 12;
+}
+
+@media only screen and (max-width: 767px) {
+    [class*="col-"] {
+        max-width: 60%;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* Ordenagailuentzat: */
+    .col-1 {
+        grid-column: span 1;
+    }
+
+    .col-2 {
+        grid-column: span 2;
+    }
+
+    .col-3 {
+        grid-column: span 3;
+    }
+
+    .col-4 {
+        grid-column: span 4;
+    }
+
+    .col-5 {
+        grid-column: span 5;
+    }
+
+    .col-6 {
+        grid-column: span 6;
+    }
+
+    .col-7 {
+        grid-column: span 7;
+    }
+
+    .col-8 {
+        grid-column: span 8;
+    }
+
+    .col-9 {
+        grid-column: span 9;
+    }
+
+    .col-10 {
+        grid-column: span 10;
+    }
+
+    .col-11 {
+        grid-column: span 11;
+    }
+
+    .col-12 {
+        grid-column: span 12;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .col-3:first-child {
+        grid-column: span 4;
+    }
+    
+    .col-6 {
+        grid-column: span 8;
+    }
+    
+    .col-3:last-child {
+        grid-column: span 12;
+    }
+}

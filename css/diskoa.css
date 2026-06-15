@@ -1,0 +1,61 @@
+main section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    margin: 15px 0 15px 0;
+}
+
+main section div {
+    width: calc(50% - 15px);
+    margin: auto;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+main h1,
+main h2,
+main li,
+main p {
+    color: whitesmoke;
+}
+
+main img {
+    width: 300px;
+}
+
+#deskripzioa {
+    order: 1;
+}
+
+#irudia {
+    order: 2;
+}
+
+@media only screen and (max-width: 768px) {
+    main section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    main section div {
+        width: 100%;
+    }
+
+    #irudia {
+        order: 1;
+    }
+
+    #deskripzioa {
+        order: 2;
+    }
+
+    main section div {
+        max-width: 100%;
+    }
+
+    main img {
+        width: 100%;
+    }
+}

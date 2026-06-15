@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /denda/
+
+    # Si no es un archivo real
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # Si no es un directorio real
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Reescribir a index.php en carpetas
+    RewriteRule ^(.+)/?$ $1/index.php [L]
+</IfModule>
