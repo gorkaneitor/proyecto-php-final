@@ -1,4 +1,10 @@
 <?php
+
+if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') {
+    header('Location: ../index.php');
+    exit();
+}
+
 require('../../klaseak/com/leartik/daw24gone/diskoak/diskoa.php');
 require('../../klaseak/com/leartik/daw24gone/diskoak/diskoa_db.php');
 require('../../klaseak/com/leartik/daw24gone/diskoak/kategoria.php');

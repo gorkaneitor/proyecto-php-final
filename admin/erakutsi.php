@@ -1,9 +1,18 @@
+<?php
+
+if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') {
+    header('Location: index.php');
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>Diskoak</title>
+    <title>Diskoen administrazio gunea</title>
 </head>
 
 <body>

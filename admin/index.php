@@ -8,8 +8,6 @@ require('../klaseak/com/leartik/daw24gone/diskoak/kategoria_db.php');
 use com\leartik\daw24gone\diskoak\DiskoaDB;
 use com\leartik\daw24gone\diskoak\KategoriaDB;
 
-
-
 $admin = false;
 
 if (isset($_POST['sartu'])) {

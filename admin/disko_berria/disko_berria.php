@@ -1,5 +1,10 @@
 <?php
 
+if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') {
+    header('Location: ../index.php');
+    exit();
+}
+
 require('../../klaseak/com/leartik/daw24gone/diskoak/kategoria.php');
 require('../../klaseak/com/leartik/daw24gone/diskoak/kategoria_db.php');
 
@@ -10,7 +15,7 @@ use com\leartik\daw24gone\diskoak\KategoriaDB;
 
 <head>
     <meta charset="utf-8">
-    <title>Diskoak</title>
+    <title>Diskoen administrazio gunea</title>
 </head>
 
 <body>
