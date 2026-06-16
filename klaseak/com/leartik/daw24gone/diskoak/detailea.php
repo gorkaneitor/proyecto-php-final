@@ -13,6 +13,14 @@ Class Detailea{
         return $this->diskoa;
     }
 
+    public function getArtikulua(){
+        return $this->diskoa;
+    }
+
+    public function setArtikulua($diskoa){
+        $this->diskoa = $diskoa;
+    }
+
     public function setKopurua($kopurua){
         $this->kopurua = $kopurua;
     }

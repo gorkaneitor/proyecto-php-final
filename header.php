@@ -1,6 +1,6 @@
 <header>
     <a class="button" href="../hasiera/"><img src="../img/logos/TWENTYONEPILOTS.png" alt="TWENTYONEPILOTS"></a>
-    <a class="button" href="../saskia.php">SASKIA</a>
+    <a class="button" href="../saskia/">SASKIA</a>
 </header>
 <nav id="menu">
     <?php
