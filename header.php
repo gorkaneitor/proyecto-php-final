@@ -23,6 +23,6 @@
             </ul>
         </li>
         <li><a class="button" href="../mediateka/">MEDIATEKA</a></li>
-        <li><a class="button" href="../kontaktua.php">KONTAKTUA</a></li>
+        <li><a class="button" href="../mezua/">KONTAKTUA</a></li>
     </ul>
 </nav>

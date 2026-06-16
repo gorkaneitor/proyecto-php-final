@@ -11,16 +11,6 @@ require('../../klaseak/com/leartik/daw24gone/diskoak/kategoria_db.php');
 use com\leartik\daw24gone\diskoak\kategoria;
 use com\leartik\daw24gone\diskoak\kategoriaDB;
 
-echo '<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Kategoriak</title>
-    </head>
-    <body>
-        <h1>Diskoen administrazio gunea</h1>
-        <p><a href="..">Hasiera</a> &gt; Kategoria berria</p>
-        <h2>Kategoria berria</h2>';
 if (isset($_POST['gorde'])) {
     $izena = $_POST['izena'];
     $deskribapena = $_POST['deskribapena'];
@@ -45,6 +35,3 @@ if (isset($_POST['gorde'])) {
     $mezua = "";
     include('kategoria_berria.php');
 }
-echo '    </body>
-</html>';
-?>

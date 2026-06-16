@@ -1,0 +1,65 @@
+main section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    row-gap: 30px;
+    column-gap: calc((100% - 840px) / 3);
+    margin: 15px 0 15px 0;
+    max-width: 100%;
+}
+
+main section div {
+    background-image: linear-gradient(black, gray 400%);
+    flex: 0 0 210px;
+    width: 210px;
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+main h2,
+main p {
+    color: whitesmoke;
+}
+
+main h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+main h2 a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+@media only screen and (max-width: 1024px) {
+    main section {
+        column-gap: calc((100% - 630px) / 2);
+    }
+
+    main section div {
+        flex: 0 0 210px;
+        width: 210px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        column-gap: 0;
+    }
+
+    main section div {
+        width: fit-content;
+        max-width: 80%;
+        flex: 0 1 auto;
+    }
+
+    main img {
+        width: 100%;
+    }
+}

@@ -12,6 +12,7 @@ require_once('../../klaseak/com/leartik/daw24gone/diskoak/kategoria_db.php');
 
 use com\leartik\daw24gone\diskoak\KategoriaDB;
 ?>
+
 <!DOCTYPE html>
 <html>
 

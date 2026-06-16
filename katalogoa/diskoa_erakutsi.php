@@ -30,7 +30,9 @@ if (isset($diskoa) && $diskoa) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twenty One Pilots<?php if ($diskoa) { echo ' - ' . $diskoa->getTitulua(); } ?></title>
+    <title>Twenty One Pilots<?php if ($diskoa) {
+                                echo ' - ' . $diskoa->getTitulua();
+                            } ?></title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/diskoa.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -50,8 +52,18 @@ if (isset($diskoa) && $diskoa) {
                     <h1><?php echo $diskoa->getTitulua(); ?></h1>
                     <p><strong>Kategoria:</strong> <?php echo $kategoriaIzena; ?></p>
                     <p><strong>Kanta kopurua:</strong> <?php echo $diskoa->getKanta_kop(); ?></p>
-                    <p><strong>Prezioa:</strong> <?php echo $diskoa->getPrezioa(); ?> &euro;</p>
-                    <p><strong>Deskontua:</strong> <?php echo $diskoa->getDeskontua(); ?> %</p>
+                    <p><strong>Prezioa:</strong> <?php
+                                                    $prezioa = $diskoa->getPrezioa();
+                                                    $deskontua = $diskoa->getDeskontua();
+
+                                                    if ($deskontua > 0) {
+                                                        $prezio_finala = $prezioa - ($prezioa * ($deskontua / 100));
+                                                        echo "<del>" . number_format($prezioa, 2) . "€</del> ";
+                                                        echo "<strong>" . number_format($prezio_finala, 2) . "€</strong>";
+                                                    } else {
+                                                        echo "<strong>" . number_format($prezioa, 2) . "€</strong>";
+                                                    }
+                                                    ?></p>
                     <a href="../saskia.php"><button>Saskira gehitu</button></a>
                 </div>
             </section>
