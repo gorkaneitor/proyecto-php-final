@@ -19,7 +19,8 @@ main section div {
 }
 
 main h2,
-main p {
+main p,
+main td {
     color: whitesmoke;
 }
 

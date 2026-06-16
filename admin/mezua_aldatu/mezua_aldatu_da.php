@@ -1,12 +1,25 @@
+<?php
+
+if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') {
+    header('Location: ../index.php');
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mezua</title>
+    <meta charset="utf-8">
+    <title>Diskoen administrazio gunea</title>
 </head>
+
 <body>
-    <p><a href="..">Hasiera</a> &gt;</p>
-    <h3>Mezua Aldatu da</h3>
+    <h1>Diskoen administrazio gunea</h1>
+    <p><a href="..">Hasiera</a> &gt; Mezua aldatu</p>
+    <h2>Mezua aldatu</h2>
+    <h3>Mezua ondo aldatu da.</h3>
 </body>
+
 </html>

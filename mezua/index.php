@@ -2,7 +2,7 @@
 require('../klaseak/com/leartik/daw24gone/diskoak/mezua.php');
 require('../klaseak/com/leartik/daw24gone/diskoak/mezua_db.php');
 use com\leartik\daw24gone\diskoak\Mezua;
-use com\leartik\daw24gone\diskoak\MezuakDB;
+use com\leartik\daw24gone\diskoak\MezuaDB;
 
 
 
@@ -22,7 +22,7 @@ if (isset($_POST['izena']) && isset($_POST['email']) && isset($_POST['mezua'])) 
     $mezua->setErantzunda($erantzunda);
     $mezua->setSortzeData($sortzeData);
 
-    if (MezuakDB::insertMezua($mezua) > 0) {
+    if (MezuaDB::insertMezua($mezua) > 0) {
         
         include('mezua_gorde_da.php');
 

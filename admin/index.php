@@ -25,6 +25,7 @@ if (isset($_POST['sartu'])) {
 if ($admin == true) {
     $kategoriak = KategoriaDB::selectKategoriak();
     $diskoak = DiskoaDB::selectDiskoak();
+    $mezuak = MezuaDB::selectMezuak();
     include('erakutsi.php');
 } else {
     if (isset($_POST['sartu'])) {

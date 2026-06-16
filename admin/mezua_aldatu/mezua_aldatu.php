@@ -3,11 +3,12 @@
 require_once('../../klaseak/com/leartik/daw24gone/diskoak/mezua.php');
 require_once('../../klaseak/com/leartik/daw24gone/diskoak/mezua_db.php');
 
-use com\leartik\daw24gone\diskoak\MezuakDB;
+use com\leartik\daw24gone\diskoak\MezuaDB;
 
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Mezua Aldatu</title>

@@ -21,7 +21,7 @@
                     <input type="text" id="izena" name="izena" size="50" maxlength="50">
                 </p>
                 <p>
-                    <label for="email">Email-a:</label>
+                    <label for="email">Email:</label>
                     <input type="text" id="email" name="email" size="50" maxlength="50">
                 </p>
                 <p>

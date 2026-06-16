@@ -8,7 +8,7 @@ use Exception;
 
 require_once __DIR__ . '/../../../../../Database.php';
 
-class MezuakDB
+class MezuaDB
 {
     public static function selectMezuak()
     {

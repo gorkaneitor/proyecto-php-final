@@ -33,7 +33,7 @@ if (isset($_POST['ezabatu_berretsi'])) {
             exit();
         }
     } else {
-        include('../disko_id_baliogabea.php');
+        include('../kategoria_id_baliogabea.php');
         exit();
     }
 } elseif (isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -50,10 +50,10 @@ if (isset($_POST['ezabatu_berretsi'])) {
         exit();
     } else {
 
-        include('../disko_id_baliogabea.php');
+        include('../kategoria_id_baliogabea.php');
         exit();
     }
 } else {
-    include('../disko_id_baliogabea.php');
+    include('../kategoria_id_baliogabea.php');
     exit();
 }

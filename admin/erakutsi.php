@@ -17,23 +17,6 @@ if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') 
 
 <body>
     <h1>Diskoen administrazio gunea</h1>
-    <h2>Diskoak</h2>
-    <?php
-    for ($i = 0; $i < count($diskoak); $i++) { ?>
-        <ul>
-            <li>
-                <?php echo $diskoak[$i]->getTitulua() ?>
-                [<a href="diskoa_aldatu/?id=<?php echo $diskoak[$i]->getId() ?>">Aldatu</a>]
-                [<a href="diskoa_ezabatu/?id=<?php echo $diskoak[$i]->getId() ?>">Ezabatu</a>]
-            </li>
-        </ul>
-    <?php } ?>
-
-    <form action="disko_berria/" method="post">
-        <p><input type="submit" value="Disko berria"></p>
-    </form>
-
-    <hr>
     <h2>Kategoriak</h2>
     <?php
     for ($i = 0; $i < count($kategoriak); $i++) { ?>
@@ -51,18 +34,36 @@ if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') 
     </form>
 
     <hr>
+    <h2>Diskoak</h2>
+    <?php
+    for ($i = 0; $i < count($diskoak); $i++) { ?>
+        <ul>
+            <li>
+                <?php echo $diskoak[$i]->getTitulua() ?>
+                [<a href="diskoa_aldatu/?id=<?php echo $diskoak[$i]->getId() ?>">Aldatu</a>]
+                [<a href="diskoa_ezabatu/?id=<?php echo $diskoak[$i]->getId() ?>">Ezabatu</a>]
+            </li>
+        </ul>
+    <?php } ?>
+
+    <form action="disko_berria/" method="post">
+        <p><input type="submit" value="Disko berria"></p>
+    </form>
+
+    <hr>
+
     <h2>Mezuak</h2>
     <?php
     for ($i = 0; $i < count($mezuak); $i++) { ?>
         <ul>
             <li>
-                <?php echo $mezuak[$i]->getIzena() ?>
-                [<a href="mezu_aldatu/?id=<?php echo $mezuak[$i]->getId() ?>">Aldatu</a>]
-                [<a href="mezu_ezabatu/?id=<?php echo $mezuak[$i]->getId() ?>">Ezabatu</a>]
+                <?php echo $mezuak[$i]->getSortzeData() ?> - <?php echo $mezuak[$i]->getMezua() ?>
+                [<a href="mezua_aldatu/?id=<?php echo $mezuak[$i]->getId() ?>">Aldatu</a>]
+                [<a href="mezua_ezabatu/?id=<?php echo $mezuak[$i]->getId() ?>">Ezabatu</a>]
             </li>
         </ul>
     <?php } ?>
-    <p><a href="irten.php">Sesiotik irten</a></p>
+    <p><a href="irten.php">Sesioa itxi</a></p>
 </body>
 
 </html>
