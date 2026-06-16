@@ -64,7 +64,11 @@ if (isset($diskoa) && $diskoa) {
                                                         echo "<strong>" . number_format($prezioa, 2) . "€</strong>";
                                                     }
                                                     ?></p>
-                    <a href="../saskia.php"><button>Saskira gehitu</button></a>
+                    <form action="../saskia/index.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $diskoa->getId(); ?>">
+                        <input type="hidden" name="kopurua" value="1">
+                        <button type="submit" name="gehitu">Saskira gehitu</button>
+                    </form>
                 </div>
             </section>
         <?php } ?>

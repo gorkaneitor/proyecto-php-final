@@ -1,4 +1,6 @@
 <?php
+require('../klaseak/com/leartik/daw24gone/diskoak/diskoa.php');
+require('../klaseak/com/leartik/daw24gone/diskoak/diskoa_db.php');
 require('../klaseak/com/leartik/daw24gone/diskoak/saskia.php');
 require('../klaseak/com/leartik/daw24gone/diskoak/detailea.php');
 require('../klaseak/com/leartik/daw24gone/diskoak/bezeroa.php');
@@ -40,9 +42,9 @@ if (isset($_POST['eskaria_gorde'])) {
 
     if (!empty($bezeroa->getIzena()) && !empty($bezeroa->getEmaila()) && count($saskia->getDetaileak()) > 0) {
         $eskaria = new Eskaria();
-        $eskaria->setData(date("Y-m-d H:i:s")); 
+        $eskaria->setData(date("Y-m-d H:i:s"));
         $eskaria->setBezeroa($bezeroa);
-        $eskaria->setDetaileak($saskia->getDetaileak()); 
+        $eskaria->setDetaileak($saskia->getDetaileak());
 
         $id_berria = EskariaDB::insertEskaria($eskaria);
 
@@ -62,4 +64,3 @@ if ((isset($_GET['akzioa']) && $_GET['akzioa'] == 'datuak_bete') || isset($_POST
 } else {
     include '../saskia/saskia_erakutsi.php';
 }
-?>

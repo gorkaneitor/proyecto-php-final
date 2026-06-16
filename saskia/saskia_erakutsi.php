@@ -5,113 +5,110 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 <!DOCTYPE html>
 <html lang="eu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoggyShop - Saskia</title>
+    <title>Saskia - Twenty One Pilots</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/saskia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../img/logos/top_logo.png">
 </head>
 <body>
     <?php include '../header.php'; ?>
 
-    <main>
-        <div class="row">
-            <div class="eskerra">
-                <img src="../img/katua nobedadeak.png" class="katua" alt="Katua">
-            </div>
+    <main class="saskia-main">
+        <section class="saskia-section">
+            <h2>Zure Saskia</h2>
 
-            <div class="erdia">
-                <h1>Saskiaren Kudeaketa</h1>
-                <p><a href="../hasiera/">Hasiera</a> &gt; Saskia</p>
-                
-                <div id="komentarioa">
-                    <h2>Zure Saskia</h2>
-                    <hr>
+            <?php if (isset($_SESSION['mezua'])): ?>
+                <div class="status-message">
+                    <?php
+                    echo htmlspecialchars($_SESSION['mezua']);
+                    unset($_SESSION['mezua']);
+                    ?>
+                </div>
+            <?php endif; ?>
 
-                    <?php if (isset($_SESSION['mezua'])): ?>
-                        <div style="background-color: #d4edda; color: #155724; padding: 15px; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 20px; font-weight: bold; text-align: center;">
-                            <?php 
-                                echo htmlspecialchars($_SESSION['mezua']); 
-                                unset($_SESSION['mezua']); 
-                            ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (count($saskia->getDetaileak()) > 0) { ?>
-                        <table cellspacing="5" cellpadding="5" border="1" style="width: 100%; border-collapse: collapse;">
-                            <tr style="background-color: #f2f2f2;">
-                                <td><strong>Produktua</strong></td>
-                                <td><strong>Prezioa</strong></td>
-                                <td><strong>Kopurua</strong></td>
-                                <td><strong>Guztira</strong></td>
-                                <td><strong>Ekintzak</strong></td>
-                            </tr>
-                            
-                            <?php foreach ($saskia->getDetaileak() as $detailea) { ?>
-                                <tr valign="middle">
-                                    <td><?php echo htmlspecialchars($detailea->getArtikulua()->getIzena()); ?></td>
-                                    <td><?php echo htmlspecialchars((string)$detailea->getArtikulua()->getPrezioa()); ?> &euro;</td>
-                                    <td>
-                                        <div style="display: flex; align-items: center; gap: 5px;">
-                                            <?php echo htmlspecialchars((string)$detailea->getKopurua()); ?>
-                                            <form action="index.php" method="post" style="display:inline;">
-                                                <input type="hidden" name="id" value="<?php echo htmlspecialchars((string)$detailea->getArtikulua()->getId()); ?>">
-                                                <button type="submit" name="gehitubat" style="background-color: green; color: white; border: none; padding: 5px 10px; cursor: pointer;">+</button>
-                                            </form>
-                                            <form action="index.php" method="post" style="display:inline;">
-                                                <input type="hidden" name="id" value="<?php echo htmlspecialchars((string)$detailea->getArtikulua()->getId()); ?>">
-                                                <button type="submit" name="kendubat" style="background-color: green; color: white; border: none; padding: 5px 10px; cursor: pointer;">-</button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td><?php echo number_format($detailea->getGuztira(), 2); ?> &euro;</td>
-                                    <td>
-                                        <form action="index.php" method="post">
+            <?php if (count($saskia->getDetaileak()) > 0) { ?>
+                <table class="saskia-table">
+                    <thead>
+                        <tr>
+                            <th>Produktua</th>
+                            <th>Prezioa</th>
+                            <th>Kopurua</th>
+                            <th>Guztira</th>
+                            <th>Ekintzak</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($saskia->getDetaileak() as $detailea) { ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($detailea->getArtikulua()->getTitulua()); ?></td>
+                                <td>
+                                    <?php
+                                    $prezioa = $detailea->getArtikulua()->getPrezioa();
+                                    $deskontua = $detailea->getArtikulua()->getDeskontua();
+                                    if ($deskontua > 0) {
+                                        $prezio_finala = $prezioa - ($prezioa * ($deskontua / 100));
+                                        echo '<del>' . number_format($prezioa, 2) . '€</del> ';
+                                        echo '<strong>' . number_format($prezio_finala, 2) . '€</strong>';
+                                    } else {
+                                        echo '<strong>' . number_format($prezioa, 2) . '€</strong>';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <div class="quantity-controls">
+                                        <?php echo htmlspecialchars((string)$detailea->getKopurua()); ?>
+                                        <form action="index.php" method="post" style="display:inline;">
                                             <input type="hidden" name="id" value="<?php echo htmlspecialchars((string)$detailea->getArtikulua()->getId()); ?>">
-                                            <button type="submit" name="ezabatu" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">X</button>
+                                            <button type="submit" name="kendubat">-</button>
                                         </form>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                            
-                            <tr style="background-color: #f9f9f9;">
-                                <td colspan="3" align="right"><strong>GUZTIRA:</strong></td>
-                                <td><strong><?php echo number_format($saskia->getSaskiaGuztira(), 2); ?> &euro;</strong></td>
+                                        <form action="index.php" method="post" style="display:inline;">
+                                            <input type="hidden" name="id" value="<?php echo htmlspecialchars((string)$detailea->getArtikulua()->getId()); ?>">
+                                            <button type="submit" name="gehitubat">+</button>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td><?php echo number_format($detailea->getGuztira(), 2); ?> &euro;</td>
                                 <td>
                                     <form action="index.php" method="post">
-                                        <button type="submit" name="ezabatudena" style="background-color: #333; color: white; border: none; padding: 10px; cursor: pointer;">Hustu</button>
+                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars((string)$detailea->getArtikulua()->getId()); ?>">
+                                        <button type="submit" name="ezabatu" class="action-button-remove">X</button>
                                     </form>
                                 </td>
                             </tr>
-                        </table>
+                        <?php } ?>
+                        <tr class="saskia-total-row">
+                            <td colspan="3">GUZTIRA:</td>
+                            <td><?php echo number_format($saskia->getSaskiaGuztira(), 2); ?> &euro;</td>
+                            <td>
+                                <form action="index.php" method="post">
+                                    <button type="submit" name="ezabatudena" class="action-button-clear">Hustu</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                        <br>
-                        <form action="../eskaria/index.php" method="post" style="text-align: right;">
-                            <button type="submit" name="eskaria" style="background-color: #28a745; color: white; padding: 15px 30px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                                ESKARIA EGIN
-                            </button>
-                        </form>
-
-                    <?php } else { ?>
-                        <div style="padding: 20px; text-align: center; border: 1px dashed #ccc;">
-                            <p>Saskia hutsik dago.</p>
-                            <a href="../katalogoa/" style="color: green; font-weight: bold;">Itzuli katalogora produktuak gehitzeko.</a>
-                        </div>
-                    <?php } ?>
+                <div class="cart-actions">
+                    <form action="../eskaria/index.php" method="post">
+                        <button type="submit" name="eskaria" class="btn-order">ESKARIA EGIN</button>
+                    </form>
                 </div>
-            </div>
 
-            <div class="right">
-                <img id="portada" src="../img/color-dogs-3274248_640.png" alt="Portada">
-                <div class="section1-textua">
-                    <h2>Animali batek betirako</h2>
-                    <h2>Maitatuko zaitu</h2>
-                    <p>Zure aukera da berari onena ematea.</p>
+            <?php } else { ?>
+                <div class="empty-cart">
+                    <p>Saskia hutsik dago.</p>
+                    <a href="../katalogoa/">Itzuli katalogora produktuak gehitzeko.</a>
                 </div>
-            </div>
-        </div>
+            <?php } ?>
+        </section>
     </main>
 
     <?php include '../footer.php'; ?>
 </body>
+
 </html>

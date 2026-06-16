@@ -10,7 +10,7 @@ use com\leartik\daw24gone\diskoak\DiskoaDB;
 use com\leartik\daw24gone\diskoak\Detailea;
 use com\leartik\daw24gone\diskoak\Saskia;
 
-if (!isset($_SESSION['saskia'])) {
+if (!isset($_SESSION['saskia']) || !is_object($_SESSION['saskia']) || !($_SESSION['saskia'] instanceof Saskia)) {
     $_SESSION['saskia'] = new Saskia();
 }
 $saskia = $_SESSION['saskia'];

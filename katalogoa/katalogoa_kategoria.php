@@ -45,7 +45,17 @@ if (!$diskoak) $diskoak = array();
                     <a href="diskoa_erakutsi.php?id=<?php echo $id; ?>">
                         <img src="../img/covers/<?php echo $id; ?>.jpg" alt="<?php echo $diskoa->getTitulua(); ?>"><br>
                         <p class="titulua"><?php echo $diskoa->getTitulua(); ?></p>
-                        <p class="prezioa"><?php echo $diskoa->getPrezioa(); ?> &euro;</p>
+                        <p class="prezioa">
+                            <?php $prezioa = $diskoa->getPrezioa(); $deskontua = $diskoa->getDeskontua();
+                            if ($deskontua > 0) {
+                                $prezio_finala = $prezioa - ($prezioa * ($deskontua / 100));
+                                echo '<del>' . number_format($prezioa, 2) . '€</del> ';
+                                echo '<strong>' . number_format($prezio_finala, 2) . '€</strong>';
+                            } else {
+                                echo '<strong>' . number_format($prezioa, 2) . '€</strong>';
+                            }
+                            ?>
+                        </p>
                     </a>
                 </div>
 

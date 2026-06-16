@@ -1,0 +1,171 @@
+/* Carrito (Saskia) */
+
+.saskia-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.saskia-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.saskia-section h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+/* Tabla del carrito */
+.saskia-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.saskia-table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.saskia-table th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.saskia-table td {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.saskia-table del,
+.saskia-table .prezioa-del {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.95em;
+}
+
+.saskia-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Total row */
+.saskia-total-row {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.saskia-total-row td:first-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Controles de cantidad */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantity-controls button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.quantity-controls button:hover {
+    background-color: #218838;
+}
+
+/* Botones de acción */
+.action-buttons form {
+    display: inline;
+}
+
+.action-button-remove {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.action-button-remove:hover {
+    background-color: #c82333;
+}
+
+.action-button-clear {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.action-button-clear:hover {
+    background-color: #555;
+}
+
+/* Mensaje de carrito vacío */
+.empty-cart {
+    padding: 20px;
+    text-align: center;
+    border: 1px dashed #ccc;
+    background-color: #f9f9f9;
+}
+
+.empty-cart a {
+    color: #28a745;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.empty-cart a:hover {
+    text-decoration: underline;
+}
+
+/* Botones de acción principales */
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-order {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-order:hover {
+    background-color: #218838;
+}
+
+/* Mensaje de estado */
+.status-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
