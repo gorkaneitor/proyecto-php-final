@@ -4,9 +4,12 @@ require('../klaseak/com/leartik/daw24gone/diskoak/diskoa.php');
 require('../klaseak/com/leartik/daw24gone/diskoak/diskoa_db.php');
 require('../klaseak/com/leartik/daw24gone/diskoak/kategoria.php');
 require('../klaseak/com/leartik/daw24gone/diskoak/kategoria_db.php');
+require('../klaseak/com/leartik/daw24gone/diskoak/mezua.php');
+require('../klaseak/com/leartik/daw24gone/diskoak/mezua_db.php');
 
 use com\leartik\daw24gone\diskoak\DiskoaDB;
 use com\leartik\daw24gone\diskoak\KategoriaDB;
+use com\leartik\daw24gone\diskoak\MezuaDB;
 
 $admin = false;
 

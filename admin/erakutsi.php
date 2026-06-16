@@ -32,6 +32,7 @@ if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') 
     <form action="disko_berria/" method="post">
         <p><input type="submit" value="Disko berria"></p>
     </form>
+
     <hr>
     <h2>Kategoriak</h2>
     <?php
@@ -48,6 +49,19 @@ if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') 
     <form action="kategoria_berria/" method="post">
         <p><input type="submit" value="Kategori berria"></p>
     </form>
+
+    <hr>
+    <h2>Mezuak</h2>
+    <?php
+    for ($i = 0; $i < count($mezuak); $i++) { ?>
+        <ul>
+            <li>
+                <?php echo $mezuak[$i]->getIzena() ?>
+                [<a href="mezu_aldatu/?id=<?php echo $mezuak[$i]->getId() ?>">Aldatu</a>]
+                [<a href="mezu_ezabatu/?id=<?php echo $mezuak[$i]->getId() ?>">Ezabatu</a>]
+            </li>
+        </ul>
+    <?php } ?>
     <p><a href="irten.php">Sesiotik irten</a></p>
 </body>
 
